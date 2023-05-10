@@ -1,0 +1,8 @@
+import org.example.Person;
+
+rule "Discount Rule"
+when
+    $p: Person(age > 60)
+then
+    $p.setDiscount(10);
+end

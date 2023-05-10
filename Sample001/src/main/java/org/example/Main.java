@@ -12,22 +12,17 @@ public class Main {
 
     public static final String drlFile = "myRule.drl";
     public static void main(String[] args) {
-
-
         // Load rules from classpath
         KieContainer kContainer = kieContainer();
         KieSession kSession = kContainer.newKieSession();
-
         // Create a person object and insert it into the session
         Person person = new Person("John", 65);
         kSession.insert(person);
 
         // Fire the rules
         kSession.fireAllRules();
-
         // Print the person's discount
         System.out.println("Person: " + person.getName() + ", Discount: " + person.getDiscount());
-
         // Dispose the session
         kSession.dispose();
     }
